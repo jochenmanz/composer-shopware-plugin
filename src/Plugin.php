@@ -10,6 +10,7 @@ class Plugin implements PluginInterface
 {
     public function activate(Composer $composer, IOInterface $io)
     {
-        var_dump("test");exit();
+        var_dump("test");
+        exit();
     }
 }
