@@ -3,7 +3,7 @@
     "type": "composer-plugin",
     "require": {
         "composer-plugin-api": "^1.0",
-        "shopware": "*"
+	"shopware/shopware": "^5.1"
     },
     "require-dev": {
         "composer/composer": "~1.0@dev"

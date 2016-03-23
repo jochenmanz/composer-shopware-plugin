@@ -7,9 +7,6 @@ use Composer\Repository\RepositoryInterface;
 
 class ShopwareRepository implements RepositoryInterface
 {
-    const SEARCH_FULLTEXT = 0;
-    const SEARCH_NAME = 1;
-
     /**
      * ShopwareRepository constructor.
      */
@@ -74,7 +71,12 @@ class ShopwareRepository implements RepositoryInterface
      */
     public function search($query, $mode = 0)
     {
-        var_dump("search");
+        return [
+            [
+                'name' => 'test',
+                'description' => 'test',
+            ]
+        ];
     }
 
     /**
