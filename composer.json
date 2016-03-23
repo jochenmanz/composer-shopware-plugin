@@ -2,7 +2,8 @@
     "name": "jochenmanz/composer-shopware-plugin",
     "type": "composer-plugin",
     "require": {
-        "composer-plugin-api": "^1.0"
+        "composer-plugin-api": "^1.0",
+        "shopware": "*"
     },
     "require-dev": {
         "composer/composer": "~1.0@dev"

@@ -10,6 +10,10 @@ class Plugin implements PluginInterface
 {
     public function activate(Composer $composer, IOInterface $io)
     {
-        var_dump("test");
+        $manager = $composer->getRepositoryManager();
+
+        $shopwareRepository = new ShopwareRepository();
+
+        $manager->addRepository($shopwareRepository);
     }
 }
