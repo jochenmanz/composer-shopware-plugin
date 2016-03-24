@@ -71,12 +71,28 @@ class ShopwareRepository implements RepositoryInterface
      */
     public function search($query, $mode = 0)
     {
-        return [
-            [
-                'name' => 'test',
-                'description' => 'test',
-            ]
-        ];
+        $params = [];
+        $params['locale'] = 'de_DE';
+        $params['shopwareVersion'] = '___VERSION___';
+        $params['offset'] = 0;
+        $params['limit'] = 30;
+        $params['sort'] = '[{"property":"release"}]';
+        $params['filter'] = '[{"property":"search","value":"'.$query.'","operator":null,"expression":null},{"property":"price","value":"all","operator":null,"expression":null}]';
+
+        $url = 'https://api.shopware.com/pluginStore/plugins';
+        $url .= '?' . http_build_query($params, null, '&');
+
+        $apiResult = json_decode(file_get_contents($url));
+
+        $result = [];
+        foreach ($apiResult->data as $item) {
+            $result[] = [
+                'name' => $item->name,
+                'description' => $item->label
+            ];
+        }
+
+        return $result;
     }
 
     /**
